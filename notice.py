@@ -24,6 +24,10 @@ class Messenger:
         self.params = {'access_token': token, "sign": self.sign}
 
     def send_text(self, content):
+        """
+        发送文本
+        @param content: str, 文本内容
+        """
         data = {"msgtype": "text", "text": {"content": content}}
         self.params["timestamp"] = self.timestamp
         return requests.post(
@@ -34,6 +38,11 @@ class Messenger:
         )
 
     def send_md(self, title, content):
+        """
+        发送Markdown文本
+        @param title: str, 标题
+        @param content: str, 文本内容
+        """
         data = {"msgtype": "markdown", "markdown": {"title": title, "text": content}}
         self.params["timestamp"] = self.timestamp
         return requests.post(
@@ -42,7 +51,7 @@ class Messenger:
             params=self.params,
             headers=self.headers
         )
-        
+
 
 if __name__ == "__main__":
     markdown_text = "\n".join(open("md_test.md", encoding="utf-8").readlines())
