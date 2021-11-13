@@ -80,7 +80,7 @@ Python 环境准备完成后，我们就可以来创建一个钉钉机器人了�
 
 代码如下，非常简单：
 
-```
+```python
 # Python实用宝典
 # 2021/11/13
 import json
@@ -122,7 +122,7 @@ class Messenger:
 
 使用的时候，请注意token和secret你既可以通过环境变量配置(DD_ACCESS_TOKEN和DD_SECRET)，也可以直接传入给Messenger：
 
-```
+```python
 if __name__ == "__main__":
     m = Messenger(
         token="你的token",
@@ -141,6 +141,7 @@ if __name__ == "__main__":
 
 为了支持发送图片消息和自定义的文字格式，我们需要配置更多的参数：
 
+```python
     def send_md(self, title, content):
         """
         发送Markdown文本
@@ -155,6 +156,7 @@ if __name__ == "__main__":
             params=self.params,
             headers=self.headers
         )
+```
 
 msgtype改为markdown，并配置markdown的参数，包括：
 
@@ -163,7 +165,7 @@ msgtype改为markdown，并配置markdown的参数，包括：
 
 这样，就能支持发送markdown消息了，我们试一下：
 
-```
+```python
 # Python实用宝典
 # 2021/11/13
 import json
